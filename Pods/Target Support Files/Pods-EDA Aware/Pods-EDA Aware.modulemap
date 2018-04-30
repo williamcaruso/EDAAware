@@ -1,0 +1,6 @@
+framework module Pods_EDA_Aware {
+  umbrella header "Pods-EDA Aware-umbrella.h"
+
+  export *
+  module * { export * }
+}
