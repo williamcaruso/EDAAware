@@ -12,18 +12,11 @@ import Charts
 
 class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, ChartViewDelegate, DrawerControllerDelegate {
     
+    // Mark: - Properties
     var drawer = DrawerView()
-
+    var tabbar = AwareTabBarController()
     var step:Double = 0.0
-    var eda: [Float] = []
-    var eda_clean: [Double] = []
-    var eda_time: [Double] = []
 
-    var heartRate: [Double] = []
-    var hr_time: [Double] = []
-    
-    var acc_sqrt: [Double] = []
-    var acc_time: [Double] = []
         
     // Mark: - Outlets
     @IBOutlet var edaLineChartView: LineChartView!
@@ -38,6 +31,8 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
     // Mark: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabbar = tabBarController as! AwareTabBarController
         
         // Initalize EDA Line Chart
         edaLineChartView.delegate = self
@@ -136,8 +131,8 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
 //    }
 //
     func didReceiveHR(_ hr: Float, withTimestamp timestamp: Double, fromDevice device: EmpaticaDeviceManager!) {
-        heartRate.append(Double(hr))
-        hr_time.append(timestamp)
+        tabbar.raw_hr.append(Double(hr))
+        tabbar.hr_time.append(timestamp)
         updateHRLineChart(hrv: Double(hr))
     }
 
@@ -146,8 +141,8 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
 //    }
 //
     func didReceiveGSR(_ gsr: Float, withTimestamp timestamp: Double, fromDevice device: EmpaticaDeviceManager!) {
-        eda.append(gsr)
-        eda_time.append(timestamp)
+        tabbar.raw_eda.append(gsr)
+        tabbar.eda_time.append(timestamp)
         step += 0.25
         updateEDALineChart()
     }
@@ -165,9 +160,8 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
 //    }
 //
     func didReceiveBatteryLevel(_ level: Float, withTimestamp timestamp: Double, fromDevice device: EmpaticaDeviceManager!) {
-        let lev = Int(level)*100
         let tabbar = self.tabBarController as! AwareTabBarController
-        tabbar.batteryLevel = "\(lev)"
+        tabbar.batteryLevel = "\(Int(level*100))"
     }
     
     // Mark - Live Updating
@@ -175,13 +169,12 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
         if (step > 4) {//&& fmod(step, 1) == 0
 
             let start = Int(max(0, 4*step - 16))
-            let end = Int(min(start+16, eda.count-1))
-            let window = eda[start...end]
+            let end = Int(min(start+16, tabbar.raw_eda.count-1))
+            let window = tabbar.raw_eda[start...end]
             let median = Double(window.sorted(by: <)[window.count / 2])
 
-            eda_clean.append(median)
+            tabbar.smooth_eda.append(median)
             DispatchQueue.main.async {
-
                 self.edaLineChartView.data?.addEntry(ChartDataEntry(x: self.step-2, y: median), dataSetIndex: 0)
                 self.edaLineChartView.setVisibleXRangeMaximum(self.step-1)
                 self.edaLineChartView.notifyDataSetChanged()
