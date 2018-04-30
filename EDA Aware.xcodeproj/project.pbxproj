@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		35DEE244D8AACF479305AB1A /* Pods_EDA_Aware.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB706B2F6206394CA26F11A /* Pods_EDA_Aware.framework */; };
+		B63B737C20977FA800A9B82B /* E4link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B737B20977FA700A9B82B /* E4link.framework */; };
+		B63B737E2097801900A9B82B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B737D2097801900A9B82B /* CoreBluetooth.framework */; };
 		B678B2922096ACFD0066BF96 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2912096ACFD0066BF96 /* MainTabBar.swift */; };
 		B678B2942096B74D0066BF96 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2932096B74D0066BF96 /* Circle.swift */; };
 		B678B2962096BD260066BF96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2952096BD260066BF96 /* Constants.swift */; };
@@ -17,12 +19,10 @@
 		B6CAFD052060C73C0085939C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CAFD032060C73C0085939C /* Main.storyboard */; };
 		B6CAFD072060C73C0085939C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6CAFD062060C73C0085939C /* Assets.xcassets */; };
 		B6CAFD0A2060C73C0085939C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CAFD082060C73C0085939C /* LaunchScreen.storyboard */; };
-		B6CAFD132060C7870085939C /* EmpaLink-ios-0.7-full.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CAFD122060C7870085939C /* EmpaLink-ios-0.7-full.framework */; };
 		B6EE6FCF2061CCBC0084553E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE6FCE2061CCBC0084553E /* Extensions.swift */; };
 		B6F583EF208A23F0006E8C67 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F583EE208A23F0006E8C67 /* Help.swift */; };
 		B6F583F1208A2401006E8C67 /* Surveys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F583F0208A2401006E8C67 /* Surveys.swift */; };
 		B6F9DE72207E4FC70082FC4B /* FullGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE71207E4FC70082FC4B /* FullGraphViewController.swift */; };
-		B6F9DE74207E50660082FC4B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE73207E50660082FC4B /* Model.swift */; };
 		B6F9DE78207E595D0082FC4B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE76207E595D0082FC4B /* DrawerView.swift */; };
 		B6F9DE79207E595D0082FC4B /* DrawerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE77207E595D0082FC4B /* DrawerProtocol.swift */; };
 		B6F9DE7C207E5A100082FC4B /* DrawerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE7A207E5A100082FC4B /* DrawerCell.swift */; };
@@ -33,6 +33,9 @@
 /* Begin PBXFileReference section */
 		44F6303FDB3B9927EBF0B8ED /* Pods-EDA Aware.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EDA Aware.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EDA Aware/Pods-EDA Aware.debug.xcconfig"; sourceTree = "<group>"; };
 		6454A83C81D335BEB7CCD7A9 /* Pods-EDA Aware.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EDA Aware.release.xcconfig"; path = "Pods/Target Support Files/Pods-EDA Aware/Pods-EDA Aware.release.xcconfig"; sourceTree = "<group>"; };
+		B63B737820977BDF00A9B82B /* EDA Aware-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EDA Aware-Bridging-Header.h"; sourceTree = "<group>"; };
+		B63B737B20977FA700A9B82B /* E4link.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = E4link.framework; sourceTree = "<group>"; };
+		B63B737D2097801900A9B82B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B678B2912096ACFD0066BF96 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		B678B2932096B74D0066BF96 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		B678B2952096BD260066BF96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -44,13 +47,10 @@
 		B6CAFD062060C73C0085939C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6CAFD092060C73C0085939C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6CAFD0B2060C73C0085939C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6CAFD122060C7870085939C /* EmpaLink-ios-0.7-full.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "EmpaLink-ios-0.7-full.framework"; sourceTree = "<group>"; };
-		B6CAFD152060C9570085939C /* EDA Aware-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EDA Aware-Bridging-Header.h"; sourceTree = "<group>"; };
 		B6EE6FCE2061CCBC0084553E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B6F583EE208A23F0006E8C67 /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		B6F583F0208A2401006E8C67 /* Surveys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Surveys.swift; sourceTree = "<group>"; };
 		B6F9DE71207E4FC70082FC4B /* FullGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullGraphViewController.swift; sourceTree = "<group>"; };
-		B6F9DE73207E50660082FC4B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B6F9DE76207E595D0082FC4B /* DrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
 		B6F9DE77207E595D0082FC4B /* DrawerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerProtocol.swift; sourceTree = "<group>"; };
 		B6F9DE7A207E5A100082FC4B /* DrawerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerCell.swift; sourceTree = "<group>"; };
@@ -64,8 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6CAFD132060C7870085939C /* EmpaLink-ios-0.7-full.framework in Frameworks */,
+				B63B737E2097801900A9B82B /* CoreBluetooth.framework in Frameworks */,
 				35DEE244D8AACF479305AB1A /* Pods_EDA_Aware.framework in Frameworks */,
+				B63B737C20977FA800A9B82B /* E4link.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +118,6 @@
 			children = (
 				B678B28E2096A1E50066BF96 /* Components */,
 				B6F9DE75207E59480082FC4B /* Drawer */,
-				B6CAFD152060C9570085939C /* EDA Aware-Bridging-Header.h */,
 				B6CAFCFF2060C73C0085939C /* AppDelegate.swift */,
 				B6EE6FCE2061CCBC0084553E /* Extensions.swift */,
 				B678B2952096BD260066BF96 /* Constants.swift */,
@@ -126,7 +126,7 @@
 				B6CAFD062060C73C0085939C /* Assets.xcassets */,
 				B6CAFD082060C73C0085939C /* LaunchScreen.storyboard */,
 				B6CAFD0B2060C73C0085939C /* Info.plist */,
-				B6F9DE73207E50660082FC4B /* Model.swift */,
+				B63B737820977BDF00A9B82B /* EDA Aware-Bridging-Header.h */,
 			);
 			path = "EDA Aware";
 			sourceTree = "<group>";
@@ -134,7 +134,8 @@
 		B6CAFD112060C7750085939C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B6CAFD122060C7870085939C /* EmpaLink-ios-0.7-full.framework */,
+				B63B737D2097801900A9B82B /* CoreBluetooth.framework */,
+				B63B737B20977FA700A9B82B /* E4link.framework */,
 				EBB706B2F6206394CA26F11A /* Pods_EDA_Aware.framework */,
 			);
 			path = Frameworks;
@@ -284,7 +285,6 @@
 			files = (
 				B678B2922096ACFD0066BF96 /* MainTabBar.swift in Sources */,
 				B6F9DE7C207E5A100082FC4B /* DrawerCell.swift in Sources */,
-				B6F9DE74207E50660082FC4B /* Model.swift in Sources */,
 				B678B2982096C3570066BF96 /* AwareTabBarController.swift in Sources */,
 				B678B2962096BD260066BF96 /* Constants.swift in Sources */,
 				B6F583F1208A2401006E8C67 /* Surveys.swift in Sources */,
@@ -443,7 +443,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "EDA Aware/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wcaruso.EDA-Aware";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -468,7 +468,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "EDA Aware/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wcaruso.EDA-Aware";
 				PRODUCT_NAME = "$(TARGET_NAME)";
