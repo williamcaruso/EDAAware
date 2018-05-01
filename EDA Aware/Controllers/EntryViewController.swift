@@ -13,6 +13,7 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // Mark: - Properties
     var currentQuestion = 0
     var currentSelectedOptions:[String] = []
+    var answers = [Int:[String]]()
     let questions = [
         ["title": "I am in...",
          "multiple": false,
@@ -20,7 +21,7 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
          "next": []
         ],
         ["title": "I am...",
-         "multiple": false,
+         "multiple": true,
          "options": ["Watching a video", "Reviewing, correcting, editing work", "Listening to a teacher", "Taking test/quiz", "Working independently", "Reading", "Talking with staff/peers", "Writing", "Playing a board/card/dice game", "Doing something with others", "Exercising", "Participating in a game in the Gym", "Participating in a class discussion", "Other"],
          "next": []
         ],
@@ -62,7 +63,14 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var optionsTableView: UITableView!
     @IBOutlet var tagCollectionView: UICollectionView!
+    @IBOutlet var nextButton: UIButton!
     
+    // Mark: - Actions
+    @IBAction func next(_ sender: Any) {
+        nextQuestion()
+    }
+    
+    // Mark: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -77,8 +85,11 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "option", for: indexPath) as! OptionTableViewCell
         let options = questions[currentQuestion]["options"] as! [String]
+        let multiple = questions[currentQuestion]["multiple"] as! Bool
         cell.optionLabel.text = options[indexPath.row]
-        
+        if currentSelectedOptions.count == 0 || !multiple {
+            nextButton.isHidden = true
+        }
         if let _ = currentSelectedOptions.index(of: options[indexPath.row]) {
             cell.accessoryType = .checkmark
         } else {
@@ -92,19 +103,41 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let multiple = questions[currentQuestion]["multiple"] as! Bool
 
         if multiple{
+            nextButton.isHidden = false
             if let idx = currentSelectedOptions.index(of: cell.optionLabel.text!) {
                 currentSelectedOptions.remove(at: idx)
             } else {
                 currentSelectedOptions.append(cell.optionLabel.text!)
             }
+            optionsTableView.reloadData()
         } else {
-            // TODO save data
-            currentQuestion += 1
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.optionsTableView.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.left)
+            currentSelectedOptions.append(cell.optionLabel.text!)
+            nextQuestion()
         }
     }
     
+    // Mark: - Helper Methods
+    func nextQuestion() {
+        // TODO save answers
+        answers[currentQuestion] = currentSelectedOptions
+            
+        currentQuestion += 1
+        currentSelectedOptions = []
+
+        
+        if currentQuestion == questions.count {
+            // END SHIT
+            return
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let title = self.questions[self.currentQuestion]["title"] as! String
+            let multiple = self.questions[self.currentQuestion]["multiple"] as! Bool
+            self.titleLabel.text = title
+            self.subtitleLabel.text = multiple ? "Select as many as apply" : "Select one"
+            self.optionsTableView.reloadSections(IndexSet(integer: 0), with: UITableViewRowAnimation.left)
+        }
+        print(answers)
+    }
 
 }
