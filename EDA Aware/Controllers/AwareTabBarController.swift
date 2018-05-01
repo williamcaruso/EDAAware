@@ -10,18 +10,35 @@ import UIKit
 
 class AwareTabBarController: UITabBarController {
 
+    // Mark: - Propertiesz
     var isConnected: Bool = Bool()
     var batteryLevel: String = ""
+    var deviceID:String = "No device connected"
+    var username = "Unkown User" {
+        didSet {
+            startSession()
+        }
+    }
     
-    var raw_eda: [Float] = []
-    var smooth_eda: [Double] = []
-    var eda_time: [Double] = []
+    func startSession() {
+        let activity = self.childViewControllers[0].childViewControllers[0] as! Activity
+        activity.startSession()
+    }
     
-    var raw_hr: [Double] = []
-    var hr_time: [Double] = []
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
-    var raw_acc_x: [Double] = []
-    var raw_acc_y: [Double] = []
-    var raw_acc_z: [Double] = []
-    var acc_time: [Double] = []
+    override func viewDidLayoutSubviews() {
+        let tabbar = tabBar as! MainTabBar
+        tabbar.middleButton.addTarget(self, action: #selector(test), for: .touchUpInside)
+    }
+    
+    @objc func test() {
+        print("entry")
+        let storyBoard = UIStoryboard(name:"Main", bundle:nil)
+        let controllerName = (storyBoard.instantiateViewController(withIdentifier: "Entry"))
+        controllerName.hidesBottomBarWhenPushed = true
+        self.childViewControllers[selectedIndex].childViewControllers[0].pushTo(viewController: controllerName)
+    }
 }

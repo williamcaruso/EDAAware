@@ -10,10 +10,15 @@
 		35DEE244D8AACF479305AB1A /* Pods_EDA_Aware.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB706B2F6206394CA26F11A /* Pods_EDA_Aware.framework */; };
 		B63B737C20977FA800A9B82B /* E4link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B737B20977FA700A9B82B /* E4link.framework */; };
 		B63B737E2097801900A9B82B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B737D2097801900A9B82B /* CoreBluetooth.framework */; };
-		B678B2922096ACFD0066BF96 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2912096ACFD0066BF96 /* MainTabBar.swift */; };
+		B63B7380209780F500A9B82B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B737F209780F500A9B82B /* AudioToolbox.framework */; };
+		B63B7382209782B700A9B82B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B7381209782B700A9B82B /* Accelerate.framework */; };
+		B63B7384209782F100A9B82B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B63B7383209782F100A9B82B /* GoogleService-Info.plist */; };
 		B678B2942096B74D0066BF96 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2932096B74D0066BF96 /* Circle.swift */; };
 		B678B2962096BD260066BF96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2952096BD260066BF96 /* Constants.swift */; };
 		B678B2982096C3570066BF96 /* AwareTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2972096C3570066BF96 /* AwareTabBarController.swift */; };
+		B69FDF76209826170092D7B9 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF75209826170092D7B9 /* EntryViewController.swift */; };
+		B69FDF7820982F4C0092D7B9 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF7720982F4C0092D7B9 /* MainTabBar.swift */; };
+		B69FDF7A2098363D0092D7B9 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF792098363D0092D7B9 /* OptionTableViewCell.swift */; };
 		B6CAFD002060C73C0085939C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAFCFF2060C73C0085939C /* AppDelegate.swift */; };
 		B6CAFD022060C73C0085939C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAFD012060C73C0085939C /* Activity.swift */; };
 		B6CAFD052060C73C0085939C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CAFD032060C73C0085939C /* Main.storyboard */; };
@@ -36,10 +41,15 @@
 		B63B737820977BDF00A9B82B /* EDA Aware-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EDA Aware-Bridging-Header.h"; sourceTree = "<group>"; };
 		B63B737B20977FA700A9B82B /* E4link.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = E4link.framework; sourceTree = "<group>"; };
 		B63B737D2097801900A9B82B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		B678B2912096ACFD0066BF96 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		B63B737F209780F500A9B82B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B63B7381209782B700A9B82B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		B63B7383209782F100A9B82B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B678B2932096B74D0066BF96 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		B678B2952096BD260066BF96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B678B2972096C3570066BF96 /* AwareTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareTabBarController.swift; sourceTree = "<group>"; };
+		B69FDF75209826170092D7B9 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		B69FDF7720982F4C0092D7B9 /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		B69FDF792098363D0092D7B9 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
 		B6CAFCFC2060C73C0085939C /* EDA Aware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EDA Aware.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6CAFCFF2060C73C0085939C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6CAFD012060C73C0085939C /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -64,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B63B7382209782B700A9B82B /* Accelerate.framework in Frameworks */,
+				B63B7380209780F500A9B82B /* AudioToolbox.framework in Frameworks */,
 				B63B737E2097801900A9B82B /* CoreBluetooth.framework in Frameworks */,
 				35DEE244D8AACF479305AB1A /* Pods_EDA_Aware.framework in Frameworks */,
 				B63B737C20977FA800A9B82B /* E4link.framework in Frameworks */,
@@ -76,10 +88,23 @@
 		B678B28E2096A1E50066BF96 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B678B2912096ACFD0066BF96 /* MainTabBar.swift */,
+				B69FDF7720982F4C0092D7B9 /* MainTabBar.swift */,
 				B678B2932096B74D0066BF96 /* Circle.swift */,
+				B69FDF792098363D0092D7B9 /* OptionTableViewCell.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B6B37D5A2097C67C00FD612D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B6CAFD082060C73C0085939C /* LaunchScreen.storyboard */,
+				B6CAFCFF2060C73C0085939C /* AppDelegate.swift */,
+				B6EE6FCE2061CCBC0084553E /* Extensions.swift */,
+				B678B2952096BD260066BF96 /* Constants.swift */,
+			);
+			name = "Supporting Files";
+			path = Spporting;
 			sourceTree = "<group>";
 		};
 		B6B814092061EF120093066F /* Controllers */ = {
@@ -87,10 +112,11 @@
 			children = (
 				B6CAFD012060C73C0085939C /* Activity.swift */,
 				B6F9DE7E207E62FB0082FC4B /* Journal.swift */,
-				B6F9DE71207E4FC70082FC4B /* FullGraphViewController.swift */,
 				B6F583EE208A23F0006E8C67 /* Help.swift */,
 				B6F583F0208A2401006E8C67 /* Surveys.swift */,
+				B6F9DE71207E4FC70082FC4B /* FullGraphViewController.swift */,
 				B678B2972096C3570066BF96 /* AwareTabBarController.swift */,
+				B69FDF75209826170092D7B9 /* EntryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -118,15 +144,13 @@
 			children = (
 				B678B28E2096A1E50066BF96 /* Components */,
 				B6F9DE75207E59480082FC4B /* Drawer */,
-				B6CAFCFF2060C73C0085939C /* AppDelegate.swift */,
-				B6EE6FCE2061CCBC0084553E /* Extensions.swift */,
-				B678B2952096BD260066BF96 /* Constants.swift */,
 				B6B814092061EF120093066F /* Controllers */,
+				B6B37D5A2097C67C00FD612D /* Supporting Files */,
 				B6CAFD032060C73C0085939C /* Main.storyboard */,
 				B6CAFD062060C73C0085939C /* Assets.xcassets */,
-				B6CAFD082060C73C0085939C /* LaunchScreen.storyboard */,
-				B6CAFD0B2060C73C0085939C /* Info.plist */,
 				B63B737820977BDF00A9B82B /* EDA Aware-Bridging-Header.h */,
+				B6CAFD0B2060C73C0085939C /* Info.plist */,
+				B63B7383209782F100A9B82B /* GoogleService-Info.plist */,
 			);
 			path = "EDA Aware";
 			sourceTree = "<group>";
@@ -134,6 +158,8 @@
 		B6CAFD112060C7750085939C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B63B7381209782B700A9B82B /* Accelerate.framework */,
+				B63B737F209780F500A9B82B /* AudioToolbox.framework */,
 				B63B737D2097801900A9B82B /* CoreBluetooth.framework */,
 				B63B737B20977FA700A9B82B /* E4link.framework */,
 				EBB706B2F6206394CA26F11A /* Pods_EDA_Aware.framework */,
@@ -230,6 +256,7 @@
 			files = (
 				B6F9DE7D207E5A100082FC4B /* DrawerCell.xib in Resources */,
 				B6CAFD0A2060C73C0085939C /* LaunchScreen.storyboard in Resources */,
+				B63B7384209782F100A9B82B /* GoogleService-Info.plist in Resources */,
 				B6CAFD072060C73C0085939C /* Assets.xcassets in Resources */,
 				B6CAFD052060C73C0085939C /* Main.storyboard in Resources */,
 			);
@@ -264,12 +291,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EDA Aware/Pods-EDA Aware-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -283,10 +316,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B678B2922096ACFD0066BF96 /* MainTabBar.swift in Sources */,
+				B69FDF7A2098363D0092D7B9 /* OptionTableViewCell.swift in Sources */,
 				B6F9DE7C207E5A100082FC4B /* DrawerCell.swift in Sources */,
 				B678B2982096C3570066BF96 /* AwareTabBarController.swift in Sources */,
 				B678B2962096BD260066BF96 /* Constants.swift in Sources */,
+				B69FDF7820982F4C0092D7B9 /* MainTabBar.swift in Sources */,
 				B6F583F1208A2401006E8C67 /* Surveys.swift in Sources */,
 				B6F9DE7F207E62FB0082FC4B /* Journal.swift in Sources */,
 				B6F9DE79207E595D0082FC4B /* DrawerProtocol.swift in Sources */,
@@ -294,6 +328,7 @@
 				B6CAFD022060C73C0085939C /* Activity.swift in Sources */,
 				B6F9DE78207E595D0082FC4B /* DrawerView.swift in Sources */,
 				B678B2942096B74D0066BF96 /* Circle.swift in Sources */,
+				B69FDF76209826170092D7B9 /* EntryViewController.swift in Sources */,
 				B6EE6FCF2061CCBC0084553E /* Extensions.swift in Sources */,
 				B6CAFD002060C73C0085939C /* AppDelegate.swift in Sources */,
 				B6F583EF208A23F0006E8C67 /* Help.swift in Sources */,
@@ -370,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -421,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

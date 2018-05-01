@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-  platform :ios, '11.0'
+  platform :ios, '10.3'
 
 target 'EDA Aware' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -8,4 +8,6 @@ target 'EDA Aware' do
   # Pods for EDA Aware
   pod 'ScrollableGraphView'
   pod 'Charts' 
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 end

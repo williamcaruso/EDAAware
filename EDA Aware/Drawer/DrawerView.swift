@@ -18,7 +18,11 @@ class DrawerView: UIView, drawerProtocolNew, UITableViewDelegate, UITableViewDat
     var backgroundView = UIView()
     var drawerView = UIView()
     
-    var is_connected:Bool = false
+    var is_connected:Bool = false {
+        didSet {
+            self.dissmiss()
+        }
+    }
     var battery_level:Float = Float()
     
     var viewController = UIViewController()
@@ -45,6 +49,7 @@ class DrawerView: UIView, drawerProtocolNew, UITableViewDelegate, UITableViewDat
     fileprivate var imgProPic = UIImageView()
     fileprivate let imgBG = UIImageView()
     fileprivate var lblUserName = UILabel()
+    fileprivate var lblSubtitle = UILabel()
     fileprivate var gradientLayer: CAGradientLayer!
 
     convenience init(aryControllers: NSArray, isBlurEffect:Bool, isHeaderInTop:Bool, controller:UIViewController) {
@@ -206,15 +211,17 @@ class DrawerView: UIView, drawerProtocolNew, UITableViewDelegate, UITableViewDat
 
         // Header
         
-        lblUserName = UILabel(frame:CGRect(x:20, y:14, width:vwForHeader.frame.size.width/2+30, height:25))
+        lblUserName = UILabel(frame:CGRect(x:75, y:14, width:vwForHeader.frame.size.width/2+30, height:25))
         lblUserName.text = "No Name"
         lblUserName.font = UIFont(name: "Hiragino Sans", size: 16)
         lblUserName.textAlignment = .left
         lblUserName.textColor = UIColor.lightText
         vwForHeader.addSubview(lblUserName)
         
-        imgProPic = UIImageView(frame:CGRect(x:vwForHeader.frame.size.width-70, y:lblUserName.frame.origin.y-5, width:60, height:60))
-        imgProPic.image = UIImage(named: "headgreen")
+        lblSubtitle = UILabel(frame:CGRect(x:75, y:14, width:vwForHeader.frame.size.width/2+30, height:25))
+        
+        imgProPic = UIImageView(frame:CGRect(x:10, y:lblUserName.frame.origin.y-5, width:60, height:60))
+        imgProPic.image = UIImage(named: "profile")
         imgProPic.layer.cornerRadius = imgProPic.frame.size.height/2
         imgProPic.layer.masksToBounds = true
         imgProPic.contentMode = .scaleAspectFit
@@ -282,6 +289,7 @@ class DrawerView: UIView, drawerProtocolNew, UITableViewDelegate, UITableViewDat
     
     @objc func connectNow() {
         print("Trying to connect...")
-        EmpaticaAPI.discoverDevices(with: viewController as! EmpaticaDelegate)
+        let activity = tabbarController.childViewControllers[0].childViewControllers[0]
+        EmpaticaAPI.discoverDevices(with: activity as! EmpaticaDelegate)
     }
 }
