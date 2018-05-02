@@ -19,6 +19,8 @@
 		B69FDF76209826170092D7B9 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF75209826170092D7B9 /* EntryViewController.swift */; };
 		B69FDF7820982F4C0092D7B9 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF7720982F4C0092D7B9 /* MainTabBar.swift */; };
 		B69FDF7A2098363D0092D7B9 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF792098363D0092D7B9 /* OptionTableViewCell.swift */; };
+		B69FDF7C209847190092D7B9 /* JournalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF7B209847190092D7B9 /* JournalTableViewCell.swift */; };
+		B69FDF8020984F400092D7B9 /* DateValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF7F20984F400092D7B9 /* DateValueFormatter.swift */; };
 		B6CAFD002060C73C0085939C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAFCFF2060C73C0085939C /* AppDelegate.swift */; };
 		B6CAFD022060C73C0085939C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CAFD012060C73C0085939C /* Activity.swift */; };
 		B6CAFD052060C73C0085939C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CAFD032060C73C0085939C /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		B69FDF75209826170092D7B9 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		B69FDF7720982F4C0092D7B9 /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		B69FDF792098363D0092D7B9 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
+		B69FDF7B209847190092D7B9 /* JournalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewCell.swift; sourceTree = "<group>"; };
+		B69FDF7F20984F400092D7B9 /* DateValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValueFormatter.swift; sourceTree = "<group>"; };
 		B6CAFCFC2060C73C0085939C /* EDA Aware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EDA Aware.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6CAFCFF2060C73C0085939C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6CAFD012060C73C0085939C /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 				B69FDF7720982F4C0092D7B9 /* MainTabBar.swift */,
 				B678B2932096B74D0066BF96 /* Circle.swift */,
 				B69FDF792098363D0092D7B9 /* OptionTableViewCell.swift */,
+				B69FDF7B209847190092D7B9 /* JournalTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 				B6CAFCFF2060C73C0085939C /* AppDelegate.swift */,
 				B6EE6FCE2061CCBC0084553E /* Extensions.swift */,
 				B678B2952096BD260066BF96 /* Constants.swift */,
+				B69FDF7F20984F400092D7B9 /* DateValueFormatter.swift */,
 			);
 			name = "Supporting Files";
 			path = Spporting;
@@ -293,6 +299,7 @@
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
+				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -301,6 +308,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -328,7 +336,9 @@
 				B6CAFD022060C73C0085939C /* Activity.swift in Sources */,
 				B6F9DE78207E595D0082FC4B /* DrawerView.swift in Sources */,
 				B678B2942096B74D0066BF96 /* Circle.swift in Sources */,
+				B69FDF7C209847190092D7B9 /* JournalTableViewCell.swift in Sources */,
 				B69FDF76209826170092D7B9 /* EntryViewController.swift in Sources */,
+				B69FDF8020984F400092D7B9 /* DateValueFormatter.swift in Sources */,
 				B6EE6FCF2061CCBC0084553E /* Extensions.swift in Sources */,
 				B6CAFD002060C73C0085939C /* AppDelegate.swift in Sources */,
 				B6F583EF208A23F0006E8C67 /* Help.swift in Sources */,

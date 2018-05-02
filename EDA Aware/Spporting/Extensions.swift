@@ -11,6 +11,13 @@ import UIKit
 
 extension UIViewController {
     
+    func getDate() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy"
+        return formatter.string(from: date)
+    }
+    
     struct DrawerArray {
         static let array:NSArray = ["Activity", "Journal", "Help", "Surveys", "Log Out"]
     }

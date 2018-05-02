@@ -10,4 +10,5 @@ target 'EDA Aware' do
   pod 'Charts' 
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'TagListView', '~> 1.0'
 end

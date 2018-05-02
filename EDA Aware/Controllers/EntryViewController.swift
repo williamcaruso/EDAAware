@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import TagListView
 
 class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var tags:[String] = []
+    var oneLineHeight: CGFloat {
+        return 54.0
+    }
+    
     // Mark: - Properties
+    // TODO start time end time
+    // TODO save to Firebase
+    var finished = false
     var currentQuestion = 0
     var currentSelectedOptions:[String] = []
     var answers = [Int:[String]]()
@@ -27,7 +36,7 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
         ],
         ["title": "My physiological state is...",
          "multiple": false,
-         "options": ["Very High", "High", "Neutral/Middle", "Low", "Very Low"],
+         "options": ["Very Activated", "Activated", "Neutral/Middle", "Calm", "Very Calm"],
          "next": []
         ],
         ["title": "I'm feeling...",
@@ -41,7 +50,7 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
          "options": ["True", "False", "I don't know"],
          "next": []
         ],
-        ["title": "I will use a trategy to help\nregulate myself",
+        ["title": "I will use a strategy to help\nregulate myself",
          "multiple": false,
          "options": ["True", "False", "I don't know"],
          "next": []
@@ -51,7 +60,7 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
          "options": ["Take a break in sensory room", "Think a different thought", "Pay attention to the teacher", "Go for a walk", "Do nothing", "Use a fidget", "Take deep breaths", "Go to nurse", "Take a break in class", "Visualize", "Draw", "Read", "Other"],
          "next": []
         ],
-        ["title": "After reporting, now I feel...",
+        ["title": "Right now I feel...",
          "multiple": false,
          "options": ["More activated", "Less activated", "No change", "I don't know"],
          "next": []
@@ -62,18 +71,25 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var optionsTableView: UITableView!
-    @IBOutlet var tagCollectionView: UICollectionView!
+    @IBOutlet var tagView: TagListView!
     @IBOutlet var nextButton: UIButton!
     
     // Mark: - Actions
     @IBAction func next(_ sender: Any) {
-        nextQuestion()
+        if finished {
+            navigationController!.popViewController(animated: true)
+        } else {
+            nextQuestion()
+        }
     }
     
     // Mark: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        
+        tagView.textFont = UIFont(name: "Hiragino Sans", size: 14)!
+        tagView.alignment = .left
     }
     
     // Mark: TableView
@@ -118,15 +134,20 @@ class EntryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // Mark: - Helper Methods
     func nextQuestion() {
-        // TODO save answers
         answers[currentQuestion] = currentSelectedOptions
-            
+//        tags += currentSelectedOptions
+        tagView.addTags(currentSelectedOptions)
         currentQuestion += 1
         currentSelectedOptions = []
 
         
         if currentQuestion == questions.count {
-            // END SHIT
+            optionsTableView.isHidden = true
+            currentQuestion -= 1
+            subtitleLabel.isHidden = true
+            titleLabel.text = "All Done"
+            nextButton.isHidden = false
+            finished = true
             return
         }
         

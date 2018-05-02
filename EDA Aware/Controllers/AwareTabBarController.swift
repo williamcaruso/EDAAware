@@ -10,7 +10,7 @@ import UIKit
 
 class AwareTabBarController: UITabBarController {
 
-    // Mark: - Propertiesz
+    // Mark: - Properties
     var isConnected: Bool = Bool()
     var batteryLevel: String = ""
     var deviceID:String = "No device connected"
@@ -23,10 +23,6 @@ class AwareTabBarController: UITabBarController {
     func startSession() {
         let activity = self.childViewControllers[0].childViewControllers[0] as! Activity
         activity.startSession()
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
     }
     
     override func viewDidLayoutSubviews() {

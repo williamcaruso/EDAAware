@@ -31,12 +31,14 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - ScrollableGraphView (4.0.4)
+  - TagListView (1.3.0)
 
 DEPENDENCIES:
   - Charts
   - Firebase/Core
   - Firebase/Database
   - ScrollableGraphView
+  - TagListView (~> 1.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -50,6 +52,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - ScrollableGraphView
+    - TagListView
 
 SPEC CHECKSUMS:
   Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
@@ -62,7 +65,8 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ScrollableGraphView: 072ea302f4ca27779692656a49d51fe537b2b1e7
+  TagListView: 669f7d4455003c877655875d34829731c4191528
 
-PODFILE CHECKSUM: 44b28b71d228a17383a4c98498f83423906149ea
+PODFILE CHECKSUM: a58501ed9c505e869b3a2be5e9590e3d54594ec6
 
 COCOAPODS: 1.5.0

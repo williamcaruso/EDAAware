@@ -19,8 +19,10 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
     var ref: DatabaseReference!
     
     var drawer = DrawerView()
-    var step:Double = 0.0
-    
+    var edaStep:Double = 0.0
+    var hrStep:Double = 0.0
+    var accStep:Double = 0.0
+
     var tags: [Double] = []
 
     var raw_eda: [Double] = []
@@ -49,6 +51,7 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
     @IBOutlet var edaLineChartView: LineChartView!
     @IBOutlet var heartRateLineChartView: LineChartView!
     @IBOutlet var accLineChartView: LineChartView!
+    @IBOutlet var connectionCircle: Circle!
     
     // Mark: - Actions
     @IBAction func showSideMenu(_ sender: Any) {
@@ -59,46 +62,9 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initalize EDA Line Chart
-        edaLineChartView.delegate = self
-        edaLineChartView.chartDescription?.enabled = false
-        edaLineChartView.drawGridBackgroundEnabled = false
-        edaLineChartView.pinchZoomEnabled = true
-        
-        var entry = ChartDataEntry(x: step, y: 0)
-        var smooth_eda: LineChartDataSet = LineChartDataSet(values: [entry], label: "EDA")
-        smooth_eda.drawCirclesEnabled = false
-        smooth_eda.drawFilledEnabled = true
-        smooth_eda.fillColor = .blue
-        smooth_eda.drawValuesEnabled = false
-        smooth_eda.cubicIntensity = 1
-        smooth_eda.setColor(mainColor)
-        
-        edaLineChartView.data = LineChartData(dataSets: [smooth_eda])
-        
-        let xAxis = edaLineChartView.xAxis
-        xAxis.labelPosition = .bottom;
-        
-        // Initalize Heart Rate Line Chart
-        heartRateLineChartView.delegate = self
-        heartRateLineChartView.chartDescription?.enabled = false
-        heartRateLineChartView.drawGridBackgroundEnabled = false
-        heartRateLineChartView.pinchZoomEnabled = true
-        
-        var hr_entry = ChartDataEntry(x: step, y: 0)
-        var hr: LineChartDataSet = LineChartDataSet(values: [hr_entry], label: "HR")
-        hr.drawCirclesEnabled = false
-        hr.drawFilledEnabled = true
-        hr.fillColor = .blue
-        hr.drawValuesEnabled = false
-        hr.cubicIntensity = 1
-        hr.setColor(blue)
-        
-        heartRateLineChartView.data = LineChartData(dataSets: [hr])
-        
-        let hrxAxis = heartRateLineChartView.xAxis
-        hrxAxis.labelPosition = .bottom;
-        
+        setUpEDALineChart()
+        setupHRLineChart()
+        setUpAccLineChart()
     }
 
     // Mark: - Device Connection and Bluetooth
@@ -123,7 +89,8 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
             if let name = firstDevice.name {
                 let tabbar = tabBarController as! AwareTabBarController
                 tabbar.deviceID = name
-                AskConfirmation(title: "Device Found", message: "We found and connected device with ID \(name).") { (connect) in self.drawer.actDissmiss()}
+                AskConfirmation(title: "Device Found", message: "We found and connected device with ID \(name).") { (connect) in self.drawer.actDissmiss()
+                }
             }
         } else {
             // error
@@ -135,10 +102,12 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
         switch (status) {
             case kDeviceStatusDisconnected:
                 tabbar.isConnected = false
+                connectionCircle.backgroundColor = red
             case kDeviceStatusConnecting:
                 break
             case kDeviceStatusConnected:
                 tabbar.isConnected = true
+                connectionCircle.backgroundColor = green
             case kDeviceStatusDisconnecting:
                 break
             default:
@@ -155,7 +124,6 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
     func didReceiveHR(_ hr: Float, withTimestamp timestamp: Double, fromDevice device: EmpaticaDeviceManager!) {
         raw_hr.append(Double(hr))
         hr_time.append(timestamp)
-        updateHRLineChart(hrv: Double(hr))
     }
 
     func didReceiveBVP(_ bvp: Float, withTimestamp timestamp: Double, fromDevice device: EmpaticaDeviceManager!) {
@@ -166,13 +134,14 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
     func didReceiveGSR(_ gsr: Float, withTimestamp timestamp: Double, fromDevice device: EmpaticaDeviceManager!) {
         raw_eda.append(Double(gsr))
         eda_time.append(timestamp)
-        step += 0.25
+        edaStep += 0.25
         updateEDALineChart()
     }
 
     func didReceiveIBI(_ ibi: Float, withTimestamp timestamp: Double, fromDevice device: EmpaticaDeviceManager!) {
         raw_ibi.append(Double(ibi))
         ibi_time.append(timestamp)
+        updateHRLineChart()
     }
 
     func didReceiveTemperature(_ temp: Float, withTimestamp timestamp: Double, fromDevice device: EmpaticaDeviceManager!) {
@@ -185,6 +154,8 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
         raw_acc_y.append(Double(y))
         raw_acc_z.append(Double(z))
         acc_time.append(timestamp)
+        accStep += 0.03125
+        updateACCLineChart()
     }
 
     func didReceiveBatteryLevel(_ level: Float, withTimestamp timestamp: Double, fromDevice device: EmpaticaDeviceManager!) {
@@ -195,7 +166,7 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
     // Mark: - Firebase
     func startSession() {
         ref = Database.database().reference()
-        getPreviousE4Data()
+//        getPreviousE4Data()
         writeE4Data()
         timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(writeE4Data), userInfo: nil, repeats: true)
     }
@@ -206,7 +177,6 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
         ref.child("users/\(tabbar.username)/activity/\(date)/raw_eda").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? [Double]
-            print(value)
             self.raw_eda = value!
 //            self.tags = value?["tags"] as? [Double] ?? []
 //            self.raw_eda = value?["raw_eda"] as? [Double] ?? []
@@ -254,38 +224,125 @@ class Activity: UIViewController, EmpaticaDelegate, EmpaticaDeviceDelegate, Char
         ])
     }
     
-    // Mark: - Live Updating for Charts
+    // Mark: - Charts
+    func setUpEDALineChart() {
+        
+        // Initalize EDA Line Chart
+        edaLineChartView.delegate = self
+        edaLineChartView.chartDescription?.enabled = false
+        edaLineChartView.drawGridBackgroundEnabled = false
+        edaLineChartView.pinchZoomEnabled = true
+        
+        let initial_entry = ChartDataEntry(x: edaStep, y: 0)
+        let edaDataSet: LineChartDataSet = LineChartDataSet(values: [initial_entry], label: "EDA")
+        edaDataSet.drawCirclesEnabled = false
+        let gradientColors = [mainColor, UIColor.clear.cgColor] as CFArray
+//        let colorLocations:[CGFloat] = [1.0, 0.0]
+        if let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: nil) {
+            edaDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+        }
+        edaDataSet.drawFilledEnabled = true // Draw the Gradient
+        edaDataSet.drawValuesEnabled = false
+        edaDataSet.setColor(mainColor)
+        
+        edaLineChartView.data = LineChartData(dataSets: [edaDataSet])
+        edaLineChartView.rightAxis.enabled = false
+        
+        let edaxAxis = edaLineChartView.xAxis
+        edaxAxis.labelPosition = .bottom;
+    }
+    
+    func setupHRLineChart() {
+        
+        // Initalize Heart Rate Line Chart
+        heartRateLineChartView.delegate = self
+        heartRateLineChartView.chartDescription?.enabled = false
+        heartRateLineChartView.drawGridBackgroundEnabled = false
+        heartRateLineChartView.pinchZoomEnabled = true
+        
+        let initial_entry = ChartDataEntry(x: hrStep, y: 0)
+        let hrDataSet: LineChartDataSet = LineChartDataSet(values: [initial_entry], label: "HR")
+        hrDataSet.drawCirclesEnabled = false
+        hrDataSet.drawFilledEnabled = true
+        let hrGradientColors = [blue, UIColor.clear.cgColor] as CFArray
+//        let hrColorLocations:[CGFloat] = [1.0, 0.0]
+        if let hrGradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: hrGradientColors, locations: nil) {
+            hrDataSet.fill = Fill.fillWithLinearGradient(hrGradient, angle: 90.0)
+            print("gradient set")
+        }
+        hrDataSet.drawFilledEnabled = true
+        hrDataSet.drawValuesEnabled = false
+        hrDataSet.setColor(blue)
+        
+        heartRateLineChartView.data = LineChartData(dataSets: [hrDataSet])
+        heartRateLineChartView.rightAxis.enabled = false
+        
+        let hrxAxis = heartRateLineChartView.xAxis
+        hrxAxis.labelPosition = .bottom;
+    }
+    
+    func setUpAccLineChart() {
+        
+        // Initalize ACC Line Chart
+        accLineChartView.delegate = self
+        accLineChartView.chartDescription?.enabled = false
+        accLineChartView.drawGridBackgroundEnabled = false
+        accLineChartView.pinchZoomEnabled = true
+        
+        let initial_entry = ChartDataEntry(x: edaStep, y: 0)
+        let accDataSet: LineChartDataSet = LineChartDataSet(values: [initial_entry], label: "ACC")
+        accDataSet.drawCirclesEnabled = false
+        let gradientColors = [lightBlue, UIColor.clear.cgColor] as CFArray // Colors of the gradient
+        let colorLocations:[CGFloat] = [1.0, 0.0] // Positioning of the gradient
+        if let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: nil) {
+            accDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+        }
+        accDataSet.drawFilledEnabled = true // Draw the Gradient
+        accDataSet.drawValuesEnabled = false
+        accDataSet.setColor(lightBlue)
+        
+        accLineChartView.data = LineChartData(dataSets: [accDataSet])
+        accLineChartView.rightAxis.enabled = false
+        
+        let xAxis = accLineChartView.xAxis
+        xAxis.labelPosition = .bottom;
+    }
+    
     func updateEDALineChart(){
-        if (step > 4) {//&& fmod(step, 1) == 0
-
-            let start = Int(max(0, 4*step - 16))
+        if (edaStep > 4) {//&& fmod(step, 1) == 0
+            let start = Int(max(0, 4*edaStep - 32))
             let end = Int(min(start+16, raw_eda.count-1))
             let window = raw_eda[start...end]
             let median = Double(window.sorted(by: <)[window.count / 2])
-
+            
             smooth_eda.append(median)
             DispatchQueue.main.async {
-                self.edaLineChartView.data?.addEntry(ChartDataEntry(x: self.step-2, y: median), dataSetIndex: 0)
-                self.edaLineChartView.setVisibleXRangeMaximum(self.step-1)
+                self.edaLineChartView.data?.addEntry(ChartDataEntry(x: self.edaStep-2, y: median), dataSetIndex: 0)
+                self.edaLineChartView.setVisibleXRangeMaximum(self.edaStep-1)
                 self.edaLineChartView.notifyDataSetChanged()
             }
         }
     }
     
-    func updateHRLineChart(hrv: Double) {
+    func updateHRLineChart() {
+        print("updating hr")
         DispatchQueue.main.async {
-            self.heartRateLineChartView.data?.addEntry(ChartDataEntry(x: self.step, y: hrv), dataSetIndex: 0)
-            self.heartRateLineChartView.setVisibleXRangeMaximum(self.step-1)
+            self.heartRateLineChartView.data?.addEntry(ChartDataEntry(x: self.ibi_time.last!, y: self.raw_ibi.last!), dataSetIndex: 0)
+            self.heartRateLineChartView.setVisibleXRangeMaximum(self.hrStep+1)
             self.heartRateLineChartView.notifyDataSetChanged()
         }
     }
     
-    // Mark: - Helper Methods
-    func getDate() -> String {
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yyyy"
-        return formatter.string(from: date)
+    
+    func updateACCLineChart() {
+        print("updating acc")
+        let val = sqrt(pow(raw_acc_x.last!,2)+pow(raw_acc_y.last!,2)+pow(raw_acc_z.last!,2))
+        DispatchQueue.main.async {
+            self.accLineChartView.data?.addEntry(ChartDataEntry(x: self.accStep, y: val), dataSetIndex: 0)
+            self.accLineChartView.setVisibleXRangeMaximum(self.acc_time.last!+1)
+            self.accLineChartView.notifyDataSetChanged()
+        }
     }
+    
 }
 
