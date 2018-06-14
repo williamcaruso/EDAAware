@@ -7,19 +7,27 @@
 //
 
 import UIKit
-
+import Foundation
+import Charts
 
 extension UIViewController {
     
     func getDate() -> String {
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yyyy"
+        formatter.dateFormat = "M-dd-yyyy"
+        return formatter.string(from: date)
+    }
+    
+    func getTime() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
         return formatter.string(from: date)
     }
     
     struct DrawerArray {
-        static let array:NSArray = ["Activity", "Journal", "Help", "Surveys", "Log Out"]
+        static let array:NSArray = ["Activity", "Journal", "Help", "Surveys",]
     }
     
     func AskConfirmation (title:String, message:String, completion:@escaping (_ result:Bool) -> Void) {
@@ -34,7 +42,8 @@ extension UIViewController {
             let textField = alert.textFields![0] as UITextField
             if self.isValidUsername(username: textField.text!){
                 let tabbar = self.tabBarController as! AwareTabBarController
-                tabbar.username = textField.text!
+                print(textField.text!)
+                tabbar.username = String(textField.text!)
                 completion(true)
             }
         }))
@@ -49,7 +58,7 @@ extension UIViewController {
     
     
     func isValidUsername(username:String) -> Bool {
-        return username.count > 3
+        return username.count > 0
     }
     
     func alertError(title:String, message:String) {
@@ -76,6 +85,10 @@ extension UIViewController {
         drawer.changeCellTextColor(txtColor: UIColor.black)
         drawer.changeUserNameTextColor(txtColor: UIColor.black)
         drawer.changeUserName(name: tabbar.username)
+        drawer.changeDeviceID(name: tabbar.deviceID)
+        if tabbar.batteryLevel != "" {
+            drawer.changeBatteryLabel(name: tabbar.batteryLevel)
+        }
         drawer.show()
         return drawer
     }
@@ -92,3 +105,10 @@ extension Dictionary {
         }
     }
 }
+
+extension Date {
+    func toMillis() -> Int64! {
+        return Int64(self.timeIntervalSince1970 * 1000)
+    }
+}
+

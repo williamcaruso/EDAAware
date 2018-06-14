@@ -14,7 +14,15 @@ class AwareTabBarController: UITabBarController {
     var isConnected: Bool = Bool()
     var batteryLevel: String = ""
     var deviceID:String = "No device connected"
-    var username = "Unkown User" {
+    
+    var journalEntries:[Any] = []
+    
+    var past_tags:[[Double]] = []
+    var past_dates:[String] = []
+    var past_smooth_eda:[[Double]] = []
+    var past_time_eda:[[Double]] = []
+    
+    var username = "Unknown User" {
         didSet {
             startSession()
         }
@@ -31,7 +39,6 @@ class AwareTabBarController: UITabBarController {
     }
     
     @objc func test() {
-        print("entry")
         let storyBoard = UIStoryboard(name:"Main", bundle:nil)
         let controllerName = (storyBoard.instantiateViewController(withIdentifier: "Entry"))
         controllerName.hidesBottomBarWhenPushed = true

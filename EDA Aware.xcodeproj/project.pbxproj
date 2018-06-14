@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35DEE244D8AACF479305AB1A /* Pods_EDA_Aware.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB706B2F6206394CA26F11A /* Pods_EDA_Aware.framework */; };
+		315CFE3A7213A74A40528D61 /* Pods_EDA_Aware.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10980891AA84D44ADDB66DB /* Pods_EDA_Aware.framework */; };
+		B60E731020A0711900C3AB9A /* SurveyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E730F20A0711900C3AB9A /* SurveyTableViewCell.swift */; };
+		B60E731720A18C0B00C3AB9A /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60E731620A18C0B00C3AB9A /* HistoryTableViewCell.swift */; };
 		B63B737C20977FA800A9B82B /* E4link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B737B20977FA700A9B82B /* E4link.framework */; };
 		B63B737E2097801900A9B82B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B737D2097801900A9B82B /* CoreBluetooth.framework */; };
 		B63B7380209780F500A9B82B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B737F209780F500A9B82B /* AudioToolbox.framework */; };
 		B63B7382209782B700A9B82B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63B7381209782B700A9B82B /* Accelerate.framework */; };
-		B63B7384209782F100A9B82B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B63B7383209782F100A9B82B /* GoogleService-Info.plist */; };
 		B678B2942096B74D0066BF96 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2932096B74D0066BF96 /* Circle.swift */; };
 		B678B2962096BD260066BF96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2952096BD260066BF96 /* Constants.swift */; };
 		B678B2982096C3570066BF96 /* AwareTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B678B2972096C3570066BF96 /* AwareTabBarController.swift */; };
+		B681FC7120D2B341003D037A /* E4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681FC7020D2B341003D037A /* E4.swift */; };
 		B69FDF76209826170092D7B9 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF75209826170092D7B9 /* EntryViewController.swift */; };
 		B69FDF7820982F4C0092D7B9 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF7720982F4C0092D7B9 /* MainTabBar.swift */; };
 		B69FDF7A2098363D0092D7B9 /* OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FDF792098363D0092D7B9 /* OptionTableViewCell.swift */; };
@@ -29,7 +31,6 @@
 		B6EE6FCF2061CCBC0084553E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE6FCE2061CCBC0084553E /* Extensions.swift */; };
 		B6F583EF208A23F0006E8C67 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F583EE208A23F0006E8C67 /* Help.swift */; };
 		B6F583F1208A2401006E8C67 /* Surveys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F583F0208A2401006E8C67 /* Surveys.swift */; };
-		B6F9DE72207E4FC70082FC4B /* FullGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE71207E4FC70082FC4B /* FullGraphViewController.swift */; };
 		B6F9DE78207E595D0082FC4B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE76207E595D0082FC4B /* DrawerView.swift */; };
 		B6F9DE79207E595D0082FC4B /* DrawerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE77207E595D0082FC4B /* DrawerProtocol.swift */; };
 		B6F9DE7C207E5A100082FC4B /* DrawerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE7A207E5A100082FC4B /* DrawerCell.swift */; };
@@ -37,18 +38,35 @@
 		B6F9DE7F207E62FB0082FC4B /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9DE7E207E62FB0082FC4B /* Journal.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B6700ADF209B5FD400744EDD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		44F6303FDB3B9927EBF0B8ED /* Pods-EDA Aware.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EDA Aware.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EDA Aware/Pods-EDA Aware.debug.xcconfig"; sourceTree = "<group>"; };
 		6454A83C81D335BEB7CCD7A9 /* Pods-EDA Aware.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EDA Aware.release.xcconfig"; path = "Pods/Target Support Files/Pods-EDA Aware/Pods-EDA Aware.release.xcconfig"; sourceTree = "<group>"; };
+		A10980891AA84D44ADDB66DB /* Pods_EDA_Aware.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EDA_Aware.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60E730F20A0711900C3AB9A /* SurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTableViewCell.swift; sourceTree = "<group>"; };
+		B60E731520A1745C00C3AB9A /* EDA Aware.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "EDA Aware.entitlements"; sourceTree = "<group>"; };
+		B60E731620A18C0B00C3AB9A /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B63B737820977BDF00A9B82B /* EDA Aware-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EDA Aware-Bridging-Header.h"; sourceTree = "<group>"; };
 		B63B737B20977FA700A9B82B /* E4link.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = E4link.framework; sourceTree = "<group>"; };
 		B63B737D2097801900A9B82B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		B63B737F209780F500A9B82B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B63B7381209782B700A9B82B /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		B63B7383209782F100A9B82B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B678B2932096B74D0066BF96 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		B678B2952096BD260066BF96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B678B2972096C3570066BF96 /* AwareTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareTabBarController.swift; sourceTree = "<group>"; };
+		B681FC7020D2B341003D037A /* E4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = E4.swift; sourceTree = "<group>"; };
 		B69FDF75209826170092D7B9 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		B69FDF7720982F4C0092D7B9 /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		B69FDF792098363D0092D7B9 /* OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -64,13 +82,11 @@
 		B6EE6FCE2061CCBC0084553E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B6F583EE208A23F0006E8C67 /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 		B6F583F0208A2401006E8C67 /* Surveys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Surveys.swift; sourceTree = "<group>"; };
-		B6F9DE71207E4FC70082FC4B /* FullGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullGraphViewController.swift; sourceTree = "<group>"; };
 		B6F9DE76207E595D0082FC4B /* DrawerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
 		B6F9DE77207E595D0082FC4B /* DrawerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerProtocol.swift; sourceTree = "<group>"; };
 		B6F9DE7A207E5A100082FC4B /* DrawerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerCell.swift; sourceTree = "<group>"; };
 		B6F9DE7B207E5A100082FC4B /* DrawerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawerCell.xib; sourceTree = "<group>"; };
 		B6F9DE7E207E62FB0082FC4B /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
-		EBB706B2F6206394CA26F11A /* Pods_EDA_Aware.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EDA_Aware.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +97,8 @@
 				B63B7382209782B700A9B82B /* Accelerate.framework in Frameworks */,
 				B63B7380209780F500A9B82B /* AudioToolbox.framework in Frameworks */,
 				B63B737E2097801900A9B82B /* CoreBluetooth.framework in Frameworks */,
-				35DEE244D8AACF479305AB1A /* Pods_EDA_Aware.framework in Frameworks */,
 				B63B737C20977FA800A9B82B /* E4link.framework in Frameworks */,
+				315CFE3A7213A74A40528D61 /* Pods_EDA_Aware.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +112,8 @@
 				B678B2932096B74D0066BF96 /* Circle.swift */,
 				B69FDF792098363D0092D7B9 /* OptionTableViewCell.swift */,
 				B69FDF7B209847190092D7B9 /* JournalTableViewCell.swift */,
+				B60E730F20A0711900C3AB9A /* SurveyTableViewCell.swift */,
+				B60E731620A18C0B00C3AB9A /* HistoryTableViewCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -108,6 +126,7 @@
 				B6EE6FCE2061CCBC0084553E /* Extensions.swift */,
 				B678B2952096BD260066BF96 /* Constants.swift */,
 				B69FDF7F20984F400092D7B9 /* DateValueFormatter.swift */,
+				B681FC7020D2B341003D037A /* E4.swift */,
 			);
 			name = "Supporting Files";
 			path = Spporting;
@@ -120,7 +139,6 @@
 				B6F9DE7E207E62FB0082FC4B /* Journal.swift */,
 				B6F583EE208A23F0006E8C67 /* Help.swift */,
 				B6F583F0208A2401006E8C67 /* Surveys.swift */,
-				B6F9DE71207E4FC70082FC4B /* FullGraphViewController.swift */,
 				B678B2972096C3570066BF96 /* AwareTabBarController.swift */,
 				B69FDF75209826170092D7B9 /* EntryViewController.swift */,
 			);
@@ -148,6 +166,7 @@
 		B6CAFCFE2060C73C0085939C /* EDA Aware */ = {
 			isa = PBXGroup;
 			children = (
+				B60E731520A1745C00C3AB9A /* EDA Aware.entitlements */,
 				B678B28E2096A1E50066BF96 /* Components */,
 				B6F9DE75207E59480082FC4B /* Drawer */,
 				B6B814092061EF120093066F /* Controllers */,
@@ -156,7 +175,6 @@
 				B6CAFD062060C73C0085939C /* Assets.xcassets */,
 				B63B737820977BDF00A9B82B /* EDA Aware-Bridging-Header.h */,
 				B6CAFD0B2060C73C0085939C /* Info.plist */,
-				B63B7383209782F100A9B82B /* GoogleService-Info.plist */,
 			);
 			path = "EDA Aware";
 			sourceTree = "<group>";
@@ -168,7 +186,7 @@
 				B63B737F209780F500A9B82B /* AudioToolbox.framework */,
 				B63B737D2097801900A9B82B /* CoreBluetooth.framework */,
 				B63B737B20977FA700A9B82B /* E4link.framework */,
-				EBB706B2F6206394CA26F11A /* Pods_EDA_Aware.framework */,
+				A10980891AA84D44ADDB66DB /* Pods_EDA_Aware.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -205,6 +223,7 @@
 				B6CAFCF92060C73C0085939C /* Frameworks */,
 				B6CAFCFA2060C73C0085939C /* Resources */,
 				A222687F2AFD436C3484F4B8 /* [CP] Embed Pods Frameworks */,
+				B6700ADF209B5FD400744EDD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,6 +250,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -262,7 +284,6 @@
 			files = (
 				B6F9DE7D207E5A100082FC4B /* DrawerCell.xib in Resources */,
 				B6CAFD0A2060C73C0085939C /* LaunchScreen.storyboard in Resources */,
-				B63B7384209782F100A9B82B /* GoogleService-Info.plist in Resources */,
 				B6CAFD072060C73C0085939C /* Assets.xcassets in Resources */,
 				B6CAFD052060C73C0085939C /* Main.storyboard in Resources */,
 			);
@@ -297,20 +318,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EDA Aware/Pods-EDA Aware-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -327,16 +344,18 @@
 				B69FDF7A2098363D0092D7B9 /* OptionTableViewCell.swift in Sources */,
 				B6F9DE7C207E5A100082FC4B /* DrawerCell.swift in Sources */,
 				B678B2982096C3570066BF96 /* AwareTabBarController.swift in Sources */,
+				B60E731020A0711900C3AB9A /* SurveyTableViewCell.swift in Sources */,
 				B678B2962096BD260066BF96 /* Constants.swift in Sources */,
 				B69FDF7820982F4C0092D7B9 /* MainTabBar.swift in Sources */,
 				B6F583F1208A2401006E8C67 /* Surveys.swift in Sources */,
 				B6F9DE7F207E62FB0082FC4B /* Journal.swift in Sources */,
 				B6F9DE79207E595D0082FC4B /* DrawerProtocol.swift in Sources */,
-				B6F9DE72207E4FC70082FC4B /* FullGraphViewController.swift in Sources */,
 				B6CAFD022060C73C0085939C /* Activity.swift in Sources */,
 				B6F9DE78207E595D0082FC4B /* DrawerView.swift in Sources */,
 				B678B2942096B74D0066BF96 /* Circle.swift in Sources */,
+				B681FC7120D2B341003D037A /* E4.swift in Sources */,
 				B69FDF7C209847190092D7B9 /* JournalTableViewCell.swift in Sources */,
+				B60E731720A18C0B00C3AB9A /* HistoryTableViewCell.swift in Sources */,
 				B69FDF76209826170092D7B9 /* EntryViewController.swift in Sources */,
 				B69FDF8020984F400092D7B9 /* DateValueFormatter.swift in Sources */,
 				B6EE6FCF2061CCBC0084553E /* Extensions.swift in Sources */,
@@ -480,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "EDA Aware/EDA Aware.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R96EA2T5KG;
 				ENABLE_BITCODE = NO;
@@ -488,9 +508,9 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "EDA Aware/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wcaruso.EDA-Aware";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wcaruso.EDAAware;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "EDA Aware/EDA Aware-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -505,6 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "EDA Aware/EDA Aware.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R96EA2T5KG;
 				ENABLE_BITCODE = NO;
@@ -513,9 +534,9 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "EDA Aware/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wcaruso.EDA-Aware";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wcaruso.EDAAware;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "EDA Aware/EDA Aware-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

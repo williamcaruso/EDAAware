@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TagListView
 
 class JournalTableViewCell: UITableViewCell {
 
@@ -16,10 +17,15 @@ class JournalTableViewCell: UITableViewCell {
     @IBOutlet var hrValueLabel: UILabel!
     @IBOutlet var accValueLabel: UILabel!
     
+    @IBOutlet var tagListView: TagListView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        tagListView.textFont = UIFont(name: "Hiragino Sans", size: 13)!
+        tagListView.alignment = .left
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

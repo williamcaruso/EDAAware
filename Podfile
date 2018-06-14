@@ -8,7 +8,6 @@ target 'EDA Aware' do
   # Pods for EDA Aware
   pod 'ScrollableGraphView'
   pod 'Charts' 
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
   pod 'TagListView', '~> 1.0'
+  pod 'PKHUD'
 end

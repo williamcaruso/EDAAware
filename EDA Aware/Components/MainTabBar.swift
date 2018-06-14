@@ -38,13 +38,10 @@ class MainTabBar: UITabBar {
 
     func setupMiddleButton() {
         middleButton.frame.size = CGSize(width: 70, height: 70)
-        middleButton.backgroundColor = UIColor(red: 1, green: 0.541, blue: 0.467, alpha: 1.00)
+        middleButton.setBackgroundImage(UIImage(named: "add"), for: .normal)
         middleButton.layer.cornerRadius = 35
         middleButton.layer.masksToBounds = true
-        middleButton.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: 15)
-        middleButton.setTitle("+", for: .normal)
-        middleButton.setTitleColor(.white, for: .normal)
-        middleButton.titleLabel?.font = UIFont(name: "Hiragino Sans", size: 35)
+        middleButton.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: 25)
         addSubview(middleButton)
     }
     

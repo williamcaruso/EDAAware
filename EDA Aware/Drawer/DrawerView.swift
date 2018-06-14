@@ -23,7 +23,7 @@ class DrawerView: UIView, drawerProtocolNew, UITableViewDelegate, UITableViewDat
             self.dissmiss()
         }
     }
-    var battery_level:Float = Float()
+    var battery_level:String = "??"
     
     var viewController = UIViewController()
     var tabbarController = AwareTabBarController()
@@ -83,6 +83,16 @@ class DrawerView: UIView, drawerProtocolNew, UITableViewDelegate, UITableViewDat
     // To change the user name of account
     func changeUserName(name:String) {
         lblUserName.text = name
+    }
+    
+    // To change the user name of account
+    func changeDeviceID(name:String) {
+        lblSubtitle.text = name
+    }
+    
+    // To change battery status
+    func changeBatteryLabel(name:String) {
+        footer_battery_label.text = "Connected \(name)% battery"
     }
     
     // To change the background color of background view
@@ -212,13 +222,18 @@ class DrawerView: UIView, drawerProtocolNew, UITableViewDelegate, UITableViewDat
         // Header
         
         lblUserName = UILabel(frame:CGRect(x:75, y:14, width:vwForHeader.frame.size.width/2+30, height:25))
-        lblUserName.text = "No Name"
+        lblUserName.text = "Unknown User"
         lblUserName.font = UIFont(name: "Hiragino Sans", size: 16)
         lblUserName.textAlignment = .left
-        lblUserName.textColor = UIColor.lightText
+        lblUserName.textColor = UIColor.darkText
         vwForHeader.addSubview(lblUserName)
         
-        lblSubtitle = UILabel(frame:CGRect(x:75, y:14, width:vwForHeader.frame.size.width/2+30, height:25))
+        lblSubtitle = UILabel(frame:CGRect(x:75, y:34, width:vwForHeader.frame.size.width/2+30, height:25))
+        lblSubtitle.text = "No Device"
+        lblSubtitle.font = UIFont(name: "Hiragino Sans", size: 11)
+        lblSubtitle.textAlignment = .left
+        lblSubtitle.textColor = UIColor.darkText
+        vwForHeader.addSubview(lblSubtitle)
         
         imgProPic = UIImageView(frame:CGRect(x:10, y:lblUserName.frame.origin.y-5, width:60, height:60))
         imgProPic.image = UIImage(named: "profile")
@@ -265,9 +280,6 @@ class DrawerView: UIView, drawerProtocolNew, UITableViewDelegate, UITableViewDat
             tabbarController.selectedIndex = 0
         case "Journal":
             tabbarController.selectedIndex = 1
-        case "Log Out":
-            //logout user
-            print("Should log out...")
         default:
             let storyBoard = UIStoryboard(name:"Main", bundle:nil)
             let controllerName = (storyBoard.instantiateViewController(withIdentifier: selected))
@@ -288,7 +300,6 @@ class DrawerView: UIView, drawerProtocolNew, UITableViewDelegate, UITableViewDat
     }
     
     @objc func connectNow() {
-        print("Trying to connect...")
         let activity = tabbarController.childViewControllers[0].childViewControllers[0]
         EmpaticaAPI.discoverDevices(with: activity as! EmpaticaDelegate)
     }
